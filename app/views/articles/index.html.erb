@@ -5,11 +5,11 @@
 
     <div class="h-full w-16 flex flex-col items-center justify-items-end absolute top-1/6 left-0 ">
       <!-- GitHub Icon -->
-      <a href="https://github.com/yourusername" target="_blank" class="text-gray-600 hover:text-gray-900">
+      <a href="https://github.com/sunnyhundal" target="_blank" class="text-gray-600 hover:text-gray-900">
         <i class="fab fa-github fa-2x"></i>
       </a>
       <!-- LinkedIn Icon -->
-      <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-gray-600 hover:text-gray-900">
+      <a href="https://linkedin.com/in/amandiph" target="_blank" class="text-gray-600 hover:text-gray-900">
         <i class="fab fa-linkedin fa-2x"></i>
       </a>
     </div>
@@ -34,6 +34,12 @@
       <img src="<%= project.image_url %>" alt="<%= project.title %>" class="w-full h-auto mb-4">
       <h2 class="text-xl font-semibold mb-2"><%= project.title %></h2>
       <p class="text-gray-600"><%= project.description %></p>
+    </div>
+  <% end %>
+
+    <% @projects.each do |project| %>
+    <div class="p-4 border rounded-md shadow-md">
+      <%= project.title %>" 
     </div>
   <% end %>
 </div>
