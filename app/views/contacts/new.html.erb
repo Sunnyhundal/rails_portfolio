@@ -1,0 +1,13 @@
+<h1>Contact Us</h1>
+<%= form_with(model: @contact, url: contacts_create_path) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+
+  <%= form.label :message %>
+  <%= form.text_area :message %>
+
+  <%= form.submit "Submit" %>
+<% end %>
