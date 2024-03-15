@@ -19,7 +19,7 @@ WORKDIR /app
 RUN bundle clean --force
 
 # Copy Gemfile and Gemfile.lock from the current directory to the container
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
 
 # Install gems
 RUN bundle install
