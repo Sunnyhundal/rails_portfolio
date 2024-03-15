@@ -246,7 +246,6 @@ DEPENDENCIES
   rails (~> 7.0.8)
   sassc-rails (~> 2.1)
   selenium-webdriver
-  sprockets-rails
   stimulus-rails
   tailwindcss-rails
   turbo-rails
