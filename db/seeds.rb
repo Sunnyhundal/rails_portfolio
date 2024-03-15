@@ -2,10 +2,11 @@
 
 # Clear existing data
 Project.destroy_all
+Skill.destroy_all
 
 # seeds.rb
 
-project = [
+projects = [
   {
     title: "Portfolio",
     description: "You are here! This portfolio was created using Next.js, Tailwind CSS, and TypeScript. The goal of this project was to create a portfolio that was easy to maintain and update. I also wanted to learn Next.js and Tailwind CSS.",
@@ -26,7 +27,7 @@ project = [
     title: "PhotoLabs",
     description: "The PhotoLabs project for the Web Development React course programming. The project is a basic web application allowing users to share photos.",
     tech: ["React", "Node.js", "Express", "PostgresSQL", "Bootstrap"],
-    image: "/images/photolab.png",
+    image: "photolabs.jpg",
     link: "",
     github: "https://github.com/Sunnyhundal/Photolabs"
   },
@@ -56,13 +57,119 @@ project = [
   }
 ]
 
-company = [
-  {
-    title: "Varrta",
-    what:"Varreta is a web development company that specializes in creating custom web applications for small to medium-sized businesses. We are a team of developers who are passionate about creating web applications that are easy to use and maintain.",
+ skills = [
+    {
+      name: "HTML",
+      simpleicon: "html5",
+      area: "Frontend",
+    },
+    {
+      name: "CSS",
+      simpleicon: "css3",
+      area: "Frontend",
+    },
+    {
+      name: "JavaScript",
+      simpleicon: "javascript",
+      area: "Frontend",
+    },
+    {
+      name: "TypeScript",
+      simpleicon: "typescript",
+      area: "Frontend",
+    },
+    {
+      name: "React",
+      simpleicon: "react",
+      area: "Frontend",
+    },
+    {
+      name: "Next.js",
+      simpleicon: "nextdotjs",
+      area: "Frontend",
+    },
+    {
+      name: "Node.js",
+      simpleicon: "nextdotjs",
+      area: "Backend",
+    },
+    {
+      name: "Express",
+      simpleicon: "express",
+      area: "Backend",
+    },
+    {
+      name: "MongoDB",
+      simpleicon: "mongodb",
+      area: "Backend",
+    },
+    {
+      name: "Git",
+      simpleicon: "git",
+      area: "Tools",
+    },
+    {
+      name: "GitHub",
+      simpleicon: "github",
+      area: "Tools",
+    },
+    {
+      name: "VSCode",
+      simpleicon: "visualstudiocode",
+      area: "Tools",
+    },
+    {
+      name: "PostgreSQL",
+      simpleicon: "postgresql",
+      area: "Backend",
+    },
+    {
+      name: "Supabase",
+      simpleicon: "supabase",
+      area: "Backend",
+    },
+    {
+      name: "Tailwind CSS",
+      simpleicon: "tailwindcss",
+      area: "Frontend",
+    },
+    {
+      name: "jest",
+      simpleicon: "jest",
+      area: "Tools",
+    },
+    {
+      name: "cypress",
+      simpleicon: "cypress",
+      area: "Tools",
 
-}
-]
+    },
+    {
+      name: "Bootstrap",
+      simpleicon: "bootstrap",
+      area: "Frontend",
+    },
+    {
+      name: "rails",
+      simpleicon: "rubyonrails",
+      area: "Backend",
+    },
+    {
+      name: "Ruby",
+      simpleicon: "ruby",
+      area: "Backend",
+    },
+    {
+      name: "Mocha",
+      simpleicon: "mocha",
+      area: "Tools",
+    },
+    {
+       name: "Chai",
+        simpleicon: "chai",
+        area: "Tools",
+    },
+];
 
 
 projects.each do |project|
@@ -73,5 +180,101 @@ projects.each do |project|
     image: project[:image],
     link: project[:link],
     github: project[:github]
+  )
+end
+
+skills = [
+  {
+    name: "Next.js",
+    simpleicon: "nextdotjs",
+    area: "Frontend",
+  },
+  {
+    name: "Node.js",
+    simpleicon: "nextdotjs",
+    area: "Backend",
+  },
+  {
+    name: "Express",
+    simpleicon: "express",
+    area: "Backend",
+  },
+  {
+    name: "MongoDB",
+    simpleicon: "mongodb",
+    area: "Backend",
+  },
+  {
+    name: "Git",
+    simpleicon: "git",
+    area: "Tools",
+  },
+  {
+    name: "GitHub",
+    simpleicon: "github",
+    area: "Tools",
+  },
+  {
+    name: "VSCode",
+    simpleicon: "visualstudiocode",
+    area: "Tools",
+  },
+  {
+    name: "PostgreSQL",
+    simpleicon: "postgresql",
+    area: "Backend",
+  },
+  {
+    name: "Supabase",
+    simpleicon: "supabase",
+    area: "Backend",
+  },
+  {
+    name: "Tailwind CSS",
+    simpleicon: "tailwindcss",
+    area: "Frontend",
+  },
+  {
+    name: "jest",
+    simpleicon: "jest",
+    area: "Tools",
+  },
+  {
+    name: "cypress",
+    simpleicon: "cypress",
+    area: "Tools",
+  },
+  {
+    name: "Bootstrap",
+    simpleicon: "bootstrap",
+    area: "Frontend",
+  },
+  {
+    name: "rails",
+    simpleicon: "rubyonrails",
+    area: "Backend",
+  },
+  {
+    name: "Ruby",
+    simpleicon: "ruby",
+    area: "Backend",
+  },
+  {
+    name: "Mocha",
+    simpleicon: "mocha",
+    area: "Tools",
+  },
+  {
+    name: "Chai",
+    simpleicon: "chai",
+    area: "Tools",
+  }
+]
+
+skills.each do |skill|
+  Skill.create!(
+    name: skill[:name],
+    simpleicon: skill[:simpleicon],
+    area: skill[:area]
   )
 end
