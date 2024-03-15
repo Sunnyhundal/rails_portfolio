@@ -1,9 +1,6 @@
 {
   "schemaVersion": 2,
   "templateId": "node",
-  "appName": "my-app-name",
-  "deployMethod": "gitRepo",
-  "environment": {
-    "NODE_ENV": "production"
-  }
+  "appName": "my-app",
+  "deployMethod": "gitRepo"
 }
