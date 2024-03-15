@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
   npm \
   && rm -rf /var/lib/apt/lists/*
 
+RUN ENV PATH=/usr/local/node/bin:$PATH
+
 # Set the working directory in the container
 WORKDIR /app
 
