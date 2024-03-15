@@ -1,5 +1,6 @@
 {
   "schemaVersion": 2,
-  "deployMethod": "dockerFile",
-  "dockerfilePath": "./path/to/Dockerfile"
+  "templateId": "node",
+  "appName": "my-app",
+  "deployMethod": "gitRepo"
 }
