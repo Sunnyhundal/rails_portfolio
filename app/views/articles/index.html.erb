@@ -1,7 +1,7 @@
 <!-- Main Content -->
 <div class="fixed-height-viewport bg-gray-100 px-8 py-12 ml-16 rounded-tl-xl">
   <div class="container mx-auto">
-    <h2 class="text-3xl font-bold mb-8">Hi Company</h2>
+    <h2 class="text-3xl font-bold mb-8">Hi Vretta!</h2>
 
     <div class="h-full w-16 flex flex-col items-center justify-items-end absolute top-1/6 left-0 ">
       <!-- GitHub Icon -->
@@ -28,31 +28,38 @@
       <h3 class="text-2xl font-bold mb-4">Projects</h3>
       <p class="text-lg">Here's a small showcase of projects that I have worked on:</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  <% @projects.each do |project| %>
-    <div class="p-4 border rounded-md shadow-md">
-      <img src="<%= project.image_url %>" alt="<%= project.title %>" class="w-full h-auto mb-4">
-      <h2 class="text-xl font-semibold mb-2"><%= project.title %></h2>
-      <p class="text-gray-600"><%= project.description %></p>
-    </div>
-  <% end %>
-
-    <% @projects.each do |project| %>
-    <div class="p-4 border rounded-md shadow-md">
-      <%= project.title %>" 
-    </div>
-  <% end %>
+<div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% @projects.each_with_index do |project, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <div class="p-4 border rounded-md shadow-md">
+          <img src='<%= project.image %>' alt="<%= project.title %>" class="w-full h-auto mb-4">
+          <h2 class="text-xl font-semibold mb-2"><%= project.title %></h2>
+          <p class="text-gray-600"><%= project.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
     </div>
 
     <div class="mb-12">
-      <h3 class="text-2xl font-bold mb-4">What I Love About Company</h3>
+      <h3 class="text-2xl font-bold mb-4">What I Love About Vretta</h3>
       <ul>
-        <li class="text-lg">The company culture</li>
+            <%= render_card 'Commitment to Quality and Integrity:', 'I love how Vretta is unwavering in its commitment to maintaining the highest quality standards in the education technology industry. Their integrity shines through in every aspect of their work, ensuring that students receive the best learning and assessment experiences possible.' %>
 
-        <li class="text-lg">The company's mission</li>
-        <li class="text-lg">The company's products</li>
+            <%= render_card 'Innovative Approach to Education Technology:', 'One of the things that stands out about Vretta is their passion for education technology. They are not just focused on delivering standard solutions; they are constantly pushing boundaries and leveraging their deep connections with educators to enhance learning and assessment experiences. Their creative design and dedication to innovation make them a leader in the field.' %>
+
+            <%= render_card 'Focus on Student Success and Equity:', "Vretta's dedication to understanding how students succeed and using technology-enhanced assessments to support their success is truly commendable. I love how they prioritize equity and skill-strengthening, ensuring that every student has access to reliable, flexible, and equitable learning and assessment experiences. Their focus on modernizing assessment methods reflects their commitment to ensuring that education remains accessible and effective for all." %>
       </ul>
     </div>
 
@@ -61,13 +68,13 @@
       <h3 class="text-2xl font-bold mb-4">Why Should You Hire Me?</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     
-    <%= render_card 'Reason 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget tellus vel nisi fermentum luctus. Nulla facilisi.' %>
+    <%= render_card 'Alignment with Company Values:', "My experience in post-secondary education has fostered a deep appreciation for the role of technology in supporting student success. Collaborating with various stakeholders, I've implemented digital tools to enhance learning experiences, aligning with Vretta's commitment to innovative education technology." %>
 
-    <%= render_card 'Reason 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget tellus vel nisi fermentum luctus. Nulla facilisi.' %>
+    <%= render_card 'Passion for Innovation:', "I am particularly drawn to Vretta's focus on creativity and passion for EdTech. My desire to leverage technology to address educational challenges and create impactful solutions resonates strongly with Vretta's mission of modernizing assessment and learning experiences." %>
 
-    <%= render_card 'Reason 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget tellus vel nisi fermentum luctus. Nulla facilisi.' %>
+    <%= render_card 'Collaborative Mindset:', "The opportunity to join Vretta's Product Development and Implementation team excites me immensely. My experience collaborating with faculty, administrators, and external partners positions me well to work effectively in a collaborative environment, contributing to the team's success" %>
 
-    <%= render_card 'Reason 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget tellus vel nisi fermentum luctus. Nulla facilisi.' %>
+    <%= render_card 'Adaptability and Eagerness to Learn:', "While I may be a recent graduate, I am highly adaptable and eager to expand my skill set. My willingness to learn, coupled with my passion for web development, makes me confident in my ability to quickly become a valuable contributor to Vretta's projects." %>
 
 
 
@@ -75,61 +82,41 @@
     </div>
 
     <!-- Skills Section -->
-    <div class="mb-12">
-      <h3 class="text-2xl font-bold mb-4">Skills</h3>
-      <ul class="list-disc list-inside">
-        <li class="text-lg">HTML/CSS</li>
-        <li class="text-lg">JavaScript</li>
-        <li class="text-lg">Ruby on Rails</li>
-        <li class="text-lg">React.js</li>
-      </ul>
-    </div>
+<div class="bg-white p-6 lg:p-12 grow rounded-md lg:ml-2.5 drop-shadow-md w-full">
+  <p class="text-xl font-semibold mb-5">Skills</p>
+  <div class="flex flex-wrap justify-between">
+    <% ['Frontend', 'Backend', 'Tools'].each do |area| %>
+      <div class="w-full md:w-auto mb-4 md:mb-0">
+        <%= render_card "#{}", render('skill_list', title: area, skills: Skill.where(area: area)) %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-    <!-- Example Links -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a href="#" class="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition duration-300">
-        <h3 class="text-xl font-bold mb-2">Link 1</h3>
-        <p class="text-lg">This is a brief description of Link 1.</p>
-      </a>
 
-      <a href="#" class="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition duration-300">
-        <h3 class="text-xl font-bold mb-2">Link 2</h3>
-        <p class="text-lg">This is a brief description of Link 2.</p>
-      </a>
-
-      <a href="#" class="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition duration-300">
-        <h3 class="text-xl font-bold mb-2 underline underline-offset-2">Link 3</h3>
-        <p class="text-lg">This is a brief description of Link 3.</p>
-      </a>
-    </div>
 
     <div class="mt-12 mb-12">
       <h3 class="text-2xl font-bold mb-4">Contact me</h3>
       <ul>
-        <li class="text-lg">To connect with me please feel free to email me at sunny@sunnyhundal.ca, or use the contact form below</li>
+        <li class="text-lg">To connect with me please feel free to email me at contact@sunnyhundal.com, or use the contact form below</li>
 
         <div class="mt-12 mb-12">
           <h3 class="text-2xl font-bold mb-4">Contact Form</h3>
-          <form action="#" method="post">
-            <div class="mb-4">
-              <label for="name" class="block text-lg font-semibold mb-2">Name</label>
-              <input type="text" id="name" name="name" class="w-1/4 p-4 border rounded-md" placeholder="Your Name">
-            </div>
-
-            <div class="mb-4">
-              <label for="email" class="block text-lg font-semibold mb-2">Email</label>
-              <input type="email" id="email" name="email" class="w-1/4 p-4 border rounded-md" placeholder="Your Email">
-            </div>
-
-            <div class="mb-4">
-              <label for="message" class="block text-lg font-semibold mb-2">Message</label>
-              <textarea name="message" id="message" class="w-1/3 h-64 p-4 border rounded-md" placeholder="Your Message"></textarea>
-            </div>
-
-            <button type="submit" class="bg-blue-500 text-white p-4 rounded-md hover:bg-blue-600 transition duration-300">Send</button>
-          </form>
-
-      
+          
+         <form action="https://formspree.io/f/mzbnaprq" method="POST" class="max-w-md mx-auto">
+  <div class="mb-4">
+    <label for="email" class="block text-gray-700">Your email:</label>
+    <input id="email" type="email" name="email" class="mt-1 p-2 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+  </div>
+  <div class="mb-6">
+    <label for="message" class="block text-gray-700">Your message:</label>
+    <textarea id="message" name="message" class="mt-1 p-2 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+  </div>
+  <!-- your other form fields go here -->
+  <div class="text-center">
+    <button type="submit" class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Send</button>
+  </div>
+</form>
 
       </ul>
     </div>
