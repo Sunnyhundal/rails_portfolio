@@ -5,13 +5,6 @@ FROM ruby:3.0.1
 ENV LANG C.UTF-8
 ENV TZ=UTC
 
-# Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get update && apt-get install -y nodejs
-
-# Set the PATH environment variable to include Node.js binaries
-ENV PATH="/usr/local/node/bin:${PATH}"
-
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
@@ -20,6 +13,9 @@ RUN apt-get update && apt-get install -y \
   nodejs \
   npm \
   && rm -rf /var/lib/apt/lists/*
+
+# Set the PATH environment variable to include Node.js binaries
+ENV PATH="/usr/local/node/bin:${PATH}"
 
 # Set the working directory in the container
 WORKDIR /app
