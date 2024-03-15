@@ -1,5 +1,5 @@
 # Use an official Ruby runtime as a parent image
-FROM ruby:3.0.3
+FROM ruby:3.0.1
 
 # Set environment variables
 ENV LANG C.UTF-8
