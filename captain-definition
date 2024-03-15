@@ -1,6 +1,7 @@
 {
   "schemaVersion": 2,
   "templateId": "node",
+  "templateVersion": "latest",
   "appName": "my-app",
   "deployMethod": "gitRepo"
 }
