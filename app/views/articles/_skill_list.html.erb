@@ -1,0 +1,16 @@
+<div>
+  <p class="text-l font-bold pb-4"><%= title %></p>
+  <ul class="flex flex-wrap">
+    <% skills.each do |skill| %>
+      <li class="skill flex-col mr-4 mb-4">
+        <span>
+          <%= image_tag("https://unpkg.com/simple-icons@v10/icons/#{skill.simpleicon}.svg",
+                        alt: skill.name,
+                        width: 32,
+                        height: 32) %>
+        </span>
+        <%= skill.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>
