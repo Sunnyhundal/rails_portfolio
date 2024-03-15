@@ -1,7 +1,12 @@
 {
   "schemaVersion": 2,
-  "templateId": "node",
-  "templateVersion": "latest",
-  "appName": "my-app",
-  "deployMethod": "gitRepo"
+  "deployMethod": "dockerFile",
+  "dockerfileLines": [
+    "FROM node:latest",
+    "WORKDIR /app",
+    "COPY package.json yarn.lock ./",
+    "RUN yarn install",
+    "COPY . .",
+    "CMD [\"yarn\", \"start\"]"
+  ]
 }
