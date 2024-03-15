@@ -56,6 +56,15 @@ project = [
   }
 ]
 
+company = [
+  {
+    title: "Varrta",
+    what:"Varreta is a web development company that specializes in creating custom web applications for small to medium-sized businesses. We are a team of developers who are passionate about creating web applications that are easy to use and maintain.",
+
+}
+]
+
+
 projects.each do |project|
   Project.create!(
     name: project[:title],
