@@ -5,6 +5,14 @@ FROM ruby:3.0.1
 ENV LANG C.UTF-8
 ENV TZ=UTC
 
+# Install Node.js
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get update && apt-get install -y nodejs
+
+# Set the PATH environment variable to include Node.js binaries
+ENV PATH="/usr/local/node/bin:${PATH}"
+
+
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
   postgresql \
@@ -13,8 +21,6 @@ RUN apt-get update && apt-get install -y \
   npm \
   && rm -rf /var/lib/apt/lists/*
 
-RUN ENV PATH=/usr/local/node/bin:$PATH
-
 # Set the working directory in the container
 WORKDIR /app
 
@@ -22,6 +28,8 @@ RUN bundle clean --force
 
 # Copy Gemfile and Gemfile.lock from the current directory to the container
 COPY Gemfile ./
+
+RUN gem install bundler && bundle install
 
 # Install gems
 RUN bundle install
