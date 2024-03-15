@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 2,
+  "templateId": "node",
+  "appName": "my-app-name",
+  "deployMethod": "gitRepo",
+  "dockerfilePath": "Dockerfile",
+  "persistentData": [],
+  "notExposeAsWebApp": true,
+  "environment": {
+    "NODE_ENV": "production"
+  }
+}
