@@ -29,13 +29,13 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 
 # use bootstrap
-gem 'bootstrap', '~> 5.3', '>= 5.3.2'
+# gem 'bootstrap', '~> 5.3', '>= 5.3.2'
 
 gem 'sassc-rails', '~> 2.1'
 
 gem 'nokogiri', '~> 1.11', platforms: :ruby
 
-gem 'mini_racer', '~> 0.8.0'
+# gem 'mini_racer', '~> 0.8.0'
 
 
 # Use Redis adapter to run Action Cable in production
