@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
   postgresql-contrib \
   nodejs \
   npm \
+  tzdata \
   && rm -rf /var/lib/apt/lists/*
 
 # Set the PATH environment variable to include Node.js binaries
