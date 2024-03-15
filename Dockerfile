@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory in the container
 WORKDIR /app
 
+RUN bundle clean --force
+
 # Copy Gemfile and Gemfile.lock from the current directory to the container
 COPY Gemfile Gemfile.lock ./
 
