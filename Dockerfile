@@ -1,11 +1,6 @@
 # Use an official Ruby runtime as a parent image
 FROM ruby:3.0.1
 
-# Set environment variables
-ENV LANG C.UTF-8
-ENV TZ=UTC
-
-
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
   postgresql \
